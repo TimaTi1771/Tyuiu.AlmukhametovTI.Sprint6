@@ -11,28 +11,33 @@ namespace Tyuiu.AlmukhametovTI.Sprint6.Task2.V24.Lib
     {
         public double[] GetMassFunction(int startValue, int stopValue)
         {
-            double[] valueArray;
-            int len = (stopValue - startValue) + 1;
-            valueArray = new double[len];
-            double F;
+            
+            int l = (stopValue - startValue) + 1;
+            double[] valueArray = new double[l];         
+            double y;
+            double o;                        
             int count = 0;
             for (int x = startValue; x <= stopValue; x++)
-            {
-                if (x != 0)
-                {
-                    F = Math.Round((Math.Sin((double)x) + ((Math.Cos((double)x) + 1) / (2 - (double)x)) + (2 * ((double)x))), 2);
-                    valueArray[count] = F;
-                    count++;
-                }
-                else
-                {
-                    F = 0;
-                    valueArray[count] = F;
-                    count++;
-                }
-
+            {                                            
+                    o = 2 - x;                                     
+                    if (x == 2)
+                    {
+                        o = 0;
+                        y = 0;
+                        
+                    }
+                    else
+                    {
+                        y = Math.Sin(x) + ((Math.Cos(x) + 1) / 2 - x) + 2 * x;                       
+                        valueArray[count] = Math.Round(y, 2);
+                        count++;
+                    }
+                
             }
             return valueArray;
         }
     }
 }
+   
+
+
